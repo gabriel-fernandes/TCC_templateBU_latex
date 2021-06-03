@@ -7,8 +7,9 @@
 % Multiple-language document - babel - selectlanguage vs begin/end{otherlanguage}
 % https://tex.stackexchange.com/questions/36526/multiple-language-document-babel-selectlanguage-vs-begin-endotherlanguage
 
-\label{cap_resultados}
+
 \chapter{Resultados}
+\label{cap_resultados}
 
 Utilizando o ambiente descrito no \autoref{cap_metodologia}, foram executadas uma série de ensiaios de aquisição, transmissão e processamento de dados utilizando uma \textit{Merging Unit} comercial com o intuito de validar os métodos propostos no \autoref{cap_algoritmos}. 
 
@@ -233,6 +234,152 @@ As tabelas \ref{tab:tabelaerros50A} e \ref{tab:tabelaerros50V} mostram os erros 
 \end{table}
 
 Como é possível perceber comparando com os erros máximos do equipamento expostos nas tabelas \ref{tab:specsMEA} e \ref{tab:specsMEV} com os erros obtidos nas tabelas \ref{tab:tabelaerros60A}, \ref{tab:tabelaerros60V}, \ref{tab:tabelaerros50A} e \ref{tab:tabelaerros50V} a placa de aquisição analisada não atende as especificações de corrente e tensão sem calibração.
+
+Ainda nesta seção é efetuada a análise da frequência dos sinais capturados, à partir do deslocamento máximo de fase em relação a uma referência ideal. Uma vez que o equipamento utilizado não fornece nenhuma forma de ajuste dos erros de fase, esta avaliação têm como objetivo verificar se a variação de fase ao longo do sinal aplicado se encontra dentro dos limites oferecidos pelo fabricante nas tabelas \ref{tab:specsMEA} e \ref{tab:specsMEV}.
+
+\begin{table}[htb]
+\IBGEtab{%
+  \caption[Avaliação da variação máxima de fase ao longo dos sinais de corrente em 60Hz aplicados no canal IA.]{Avaliação da variação máxima de fase ao longo dos sinais de corrente em 50Hz aplicados no canal IA.}%
+  \label{tab:tabelaerros60Aphase}
+}{%
+  \begin{tabular}{ccc}
+  %\small -> diminuir fonte
+  \toprule
+   \textbf{Canal IA} &  &  \\
+  \midrule
+  \textbf{Valor Aplicado (mA)} & \textbf{Variação Máxima  permitida} & \textbf{Variação Máxima encontrada}   \\
+  \midrule
+  50 & $\pm$ $0.3^{\circ}$  & $0.0962^{\circ}$  \\
+  \midrule
+  200  & $\pm$ $0.15^{\circ}$  & $-0.0214^{\circ}$ \\
+  \midrule
+  1000 & $\pm$ $0.1^{\circ}$ &	$0.0074^{\circ}$ \\
+  \midrule
+  1200 & $\pm$ $0.1^{\circ}$ & $0.0105^{\circ}$  \\
+  \midrule
+  3000 & $\pm$ $0.1^{\circ}$ & $-0.00262^{\circ}$  \\
+  \midrule
+  4000 & $\pm$ $0.1^{\circ}$ & $0.0021^{\circ}$   \\
+  \bottomrule
+\end{tabular}%
+}{%
+  \fonte{Produzido pelo autor.}%
+ % \nota{rd representa o valor lido (em V).}
+  %\nota{Esta é uma nota, que diz que os dados são baseados na
+ % regressão linear. -- \showfont}%
+  %\nota[Anotações]{Uma anotação adicional, que pode ser seguida de várias 0.0962	0.0214	0.0074	0.0105	0.0026	0.0021
+
+  %outras. -- \showfont}%
+ }
+\end{table}
+
+\begin{table}[htb]
+\IBGEtab{%
+  \caption[Avaliação da variação máxima de fase ao longo dos sinais de corrente em 60Hz aplicados no canal VC.]{Avaliação da variação máxima de fase ao longo dos sinais de corrente em 50Hz aplicados no canal VC.}%
+  \label{tab:tabelaerros60Vphase}
+}{%
+  \begin{tabular}{ccc}
+  %\small -> diminuir fonte
+  \toprule
+   \textbf{Canal VC} &  &  \\
+  \midrule
+  \textbf{Valor Aplicado (V)} & \textbf{Variação Máxima  permitida} & \textbf{Variação Máxima encontrada} \\
+  \midrule
+  9.2 & $\pm$ $0.1^{\circ}$  & $0.00261^{\circ}$\\
+  \midrule
+  57  & $\pm$ $0.1^{\circ}$ & $-0.0047^{\circ}$ \\
+  \midrule
+  92 & $\pm$ $0.1^{\circ}$ & $0.0028^{\circ}$ \\
+  \midrule
+  115 & $\pm$ $0.1^{\circ}$ & $0.0031^{\circ}$  \\
+  \midrule
+  138 & $\pm$ $0.1^{\circ}$ & $-0.0036^{\circ}$  \\
+  \midrule
+  161 & $\pm$ $0.1^{\circ}$ & $-0.0037^{\circ}$   \\
+  \bottomrule
+\end{tabular}%
+}{%
+  \fonte{Produzido pelo autor.}%
+ % \nota{rd representa o valor lido (em V).}
+  %\nota{Esta é uma nota, que diz que os dados são baseados na
+ % regressão linear. -- \showfont}% 0.0026	0.0047	0.0028	0.0031	0.0036	0.0037
+  %\nota[Anotações]{Uma anotação adicional, que pode ser seguida de várias 
+  %outras. -- \showfont}%
+  }
+\end{table}
+
+
+\begin{table}[htb]
+\IBGEtab{%
+  \caption[Avaliação da variação máxima de fase ao longo dos sinais de corrente em 50Hz aplicados no canal IA.]{Avaliação da variação máxima de fase ao longo dos sinais de corrente em 50Hz aplicados no canal IA.}%
+  \label{tab:tabelaerros50Aphase}
+}{%
+  \begin{tabular}{ccc}
+  %\small -> diminuir fonte
+  \toprule
+   \textbf{Canal IA} &  &  \\
+  \midrule
+  \textbf{Valor Aplicado (mA)} & \textbf{Variação Máxima  permitida} & \textbf{Variação Máxima encontrada} \\
+  \midrule
+  50 & $\pm$ $0.3^{\circ}$  & $0.0341^{\circ}$  \\
+  \midrule
+  200  & $\pm$ $0.15^{\circ}$  & $0.1402^{\circ}$ \\
+  \midrule
+  1000 & $\pm$ $0.1^{\circ}$ &	$0.0044^{\circ}$ \\
+  \midrule
+  1200 & $\pm$ $0.1^{\circ}$ & $0.0354^{\circ}$  \\
+  \midrule
+  3000 & $\pm$ $0.1^{\circ}$ & $0.0092^{\circ}$  \\
+  \midrule
+  4000 & $\pm$ $0.1^{\circ}$ & $0.0101^{\circ}$   \\
+  \bottomrule
+\end{tabular}%
+}{%
+  \fonte{Produzido pelo autor.}%
+ % \nota{rd representa o valor lido (em V).}
+  %\nota{Esta é uma nota, que diz que os dados são baseados na
+ % regressão linear. -- \showfont}%
+  %\nota[Anotações]{Uma anotação adicional, que pode ser seguida de várias
+  %outras. -- \showfont}%
+ }
+\end{table}
+
+\begin{table}[htb]
+\IBGEtab{%
+  \caption[Avaliação da variação máxima de fase ao longo dos sinais de corrente em 50Hz aplicados no canal VC.]{Avaliação da variação máxima de fase ao longo dos sinais de corrente em 50Hz aplicados no canal VC.}%
+  \label{tab:tabelaerros50Vphase}
+}{%
+  \begin{tabular}{ccc}
+  %\small -> diminuir fonte
+  \toprule
+   \textbf{Canal VC} &  &  \\
+  \midrule
+  \textbf{Valor Aplicado (V)} & \textbf{Variação Máxima  permitida} & \textbf{Variação Máxima encontrada}  \\
+  \midrule
+  9.2 & $\pm$ $0.1^{\circ}$  & $0.05181^{\circ}$ \\
+  \midrule
+  57  & $\pm$ $0.1^{\circ}$ & $-0.0051^{\circ}$ \\
+  \midrule
+  92 & $\pm$ $0.1^{\circ}$ & $0.00534^{\circ}$ \\
+  \midrule
+  115 & $\pm$ $0.1^{\circ}$ & $0.0029^{\circ}$  \\
+  \midrule
+  138 & $\pm$ $0.1^{\circ}$ & $-0.0152^{\circ}$  \\
+  \midrule
+  161 & $\pm$ $0.1^{\circ}$ & $0.0103^{\circ}$   \\
+  \bottomrule
+\end{tabular}%
+}{%
+  \fonte{Produzido pelo autor.}%
+ % \nota{rd representa o valor lido (em V).}
+  %\nota{Esta é uma nota, que diz que os dados são baseados na
+ % regressão linear. -- \showfont}%
+  %\nota[Anotações]{Uma anotação adicional, que pode ser seguida de várias 
+  %outras. -- \showfont}%
+  }
+\end{table}
+
+Observa-se nas tabelas \ref{tab:tabelaerros60Aphase}, \ref{tab:tabelaerros60Vphase}, \ref{tab:tabelaerros50Aphase} e \ref{tab:tabelaerros50Vphase} que em toda a faixa de sinais de corrente e tensão aplicados a máxima variação de fase manteve-se abaixo dos máximos permitidos pelo fabricante.
 
 \newpage
 
@@ -774,7 +921,7 @@ Com o intuito de avaliar os resultados dos três métodos de maneira simultânea
     \caption{Porcentagem do erro máximo atingido para os sinais de corrente com maior erro por ciclo após a aplicação do Método dos Mínimos Quadrados Ordinários (MQO), do Método dos Mínimos Quadrados Ponderados (MQP) e do método dos Mínimos Desvios Absolutos (MDA) em 60 Hz}
     \label{fig:res_curr}
     \centering
-    \includegraphics[width=0.9\linewidth]{pictures/max_err_A_aftercalib.png}
+    \includegraphics[width=0.9\linewidth]{pictures/max_err_IA_aftercalib60Hz}
     \fonte{o autor.}
 \end{figure}
 
@@ -810,7 +957,7 @@ Fazendo a mesma análise utilizando o canal de tensão VC, observa-se que em nen
     \caption{Porcentagem do erro máximo atingido para os sinais de tensão com maior erro por ciclo após a aplicação do Método dos Mínimos Quadrados Ordinários (MQO), do Método dos Mínimos Quadrados Ponderados (MQP) e do método dos Mínimos Desvios Absolutos (MDA).}
     \label{fig:res_volt}
     \centering
-    \includegraphics[width=0.9\linewidth]{pictures/max_err_V_aftercalib.png}
+    \includegraphics[width=0.9\linewidth]{pictures/max_err_VC_aftercalib60.pdf}
     \fonte{o autor.}
 \end{figure}
 
@@ -840,14 +987,14 @@ A tabela \ref{tab:med_resvolt} expõe as médias dos erros obtidos nas três cal
   }
 \end{table}
 
-Da mesma forma, utilizando sinais de entrada de 50 Hz, temos os resultados expostos nas imagens \ref{fig:res_curr50} para corrente e \ref{fig:res_volt50} para tensão. No canal de corrente, os métodos de Mínimos Quadrados Ponderados e Mínimos Desvios Absolutos em primeira ordem são suficientes para compensar as leituras e deixar o equipamento dentro das especificações do fabricante. No método de Mínimos Quadrados Ordinários, o resultado mostra-se insuficiente para 50 mA. Já para o canal de tensão, da mesma forma que utilizando sinais de entrada com 60 Hz, nenhum dos três métodos é insuficiente para a calibração em primeira ordem. As tabelas \ref{tab:med_rescurr} e \ref{tab:med_resvol} expõem os erros médios após estas calibrações.
+Da mesma forma, utilizando sinais de entrada de 50 Hz, temos os resultados expostos nas imagens \ref{fig:res_curr50} para corrente e \ref{fig:res_volt50} para tensão. No canal de corrente, os métodos de Mínimos Quadrados Ponderados e Mínimos Desvios Absolutos em primeira ordem são suficientes para compensar as leituras e deixar o equipamento dentro das especificações do fabricante. No método de Mínimos Quadrados Ordinários, o resultado mostra-se insuficiente para 50 mA. Já para o canal de tensão, da mesma forma que utilizando sinais de entrada com 60 Hz, nenhum dos três métodos é insuficiente para a calibração em primeira ordem. As tabelas \ref{tab:med_rescurr} e \ref{tab:med_resvolt} expõem os erros médios após estas calibrações.
 
 
 \begin{figure}
     \caption{Porcentagem do erro máximo atingido para os sinais de corrente com maior erro por ciclo após a aplicação do Método dos Mínimos Quadrados Ordinários (MQO), do Método dos Mínimos Quadrados Ponderados (MQP) e do método dos Mínimos Desvios Absolutos (MDA) em 50 Hz}
     \label{fig:res_curr50}
     \centering
-    \includegraphics[width=0.9\linewidth]{pictures/50hzIA.png}
+    \includegraphics[width=0.9\linewidth]{pictures/max_err_IA_aftercalib50Hz.pdf}
     \fonte{o autor.}
 \end{figure}
 
@@ -855,7 +1002,7 @@ Da mesma forma, utilizando sinais de entrada de 50 Hz, temos os resultados expos
     \caption{Porcentagem do erro máximo atingido para os sinais de tensão em 50 Hz com maior erro por ciclo após a aplicação do Método dos Mínimos Quadrados Ordinários (MQO), do Método dos Mínimos Quadrados Ponderados (MQP) e do método dos Mínimos Desvios Absolutos (MDA).}
     \label{fig:res_volt50}
     \centering
-    \includegraphics[width=0.9\linewidth]{pictures/50HzVC_1.png}
+    \includegraphics[width=0.9\linewidth]{pictures/max_err_VC_aftercalib50Hz.pdf}
     \fonte{o autor.}
 \end{figure}
 
@@ -922,7 +1069,7 @@ Os resultados desta proposta estão na \figref{fig:res_volt2nd} para os três m�
     \caption{Porcentagem do erro máximo atingido para os sinais de tensão com maior erro por ciclo em 60 Hz após a aplicação do Método dos Mínimos Quadrados Ordinários (MQO), do Método dos Mínimos Quadrados Ponderados (MQP) e do método dos Mínimos Desvios Absolutos (MDA), todos em segunda ordem.}
     \label{fig:res_volt2nd}
     \centering
-    \includegraphics[width=0.9\linewidth]{pictures/max_err_V_aftercalib2nd.png}
+    \includegraphics[width=0.9\linewidth]{pictures/max_err_VC_aftercalib60_2nd.pdf}
     \fonte{o autor.}
 \end{figure}
 
@@ -958,7 +1105,7 @@ Como já é possível perceber, há uma substancial diminuição nos erros, prin
     \caption{Porcentagem do erro máximo atingido para os sinais de tensão com maior erro por ciclo em 50 Hz após a aplicação do Método dos Mínimos Quadrados Ordinários (MQO), do Método dos Mínimos Quadrados Ponderados (MQP) e do método dos Mínimos Desvios Absolutos (MDA), todos em segunda ordem.}
     \label{fig:res_volt2nd50}
     \centering
-    \includegraphics[width=0.9\linewidth]{pictures/50HzVC_2.png}
+    \includegraphics[width=0.9\linewidth]{pictures/max_err_VC_aftercalib50_2nd.pdf}
     \fonte{o autor.}
 \end{figure}
 
