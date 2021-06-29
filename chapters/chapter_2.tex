@@ -106,7 +106,7 @@ Já com estes pacotes de \textit{Sampled Values} recebidos pelo computador, é m
     \label{fig:sig_corr_reconst}
 \end{figure}
 
-\section{Cálculo dos erros de magnitude e análise da fase e da frequência dos sinais reconstruídos}
+\section{Cálculo dos erros de magnitude dos sinais reconstruídos}
 
 Após a reconstrução das amostras para cada um dos canais de aquisição, é calculado o valor quadrático médio ou RMS (do inglês \textit{Root Mean Square}) por ciclo, como exposto na equação \ref{eq:24}:
 
@@ -119,17 +119,6 @@ Onde N representa o número de amostras por ciclo do sinal avaliado e k é o ín
 Estes valores são muito informativos pois restringem o múmero de amostras utilizadas como entrada para os algoritmos de calibração de cada canal, sem perder informações substanciais dos sinais originais. 
 
 Neste ponto, é possível calcular os erros de magnitude entre o valor RMS dos sinais aplicados pela fonte e cada um dos valores RMS obtidos por ciclo. De forma a aumentar a variedade dos resultados e trazer mais informações, para cada sinal aplicado são salvos o maior, o menor e a média entre os erros. 
-
-Apesar de não haver sincronismo entre os sinais aplicados pela fonte, isto é, não é sabida a fase inicial destes sinais, é possível ainda assim avaliar eventuais distorções de fase comparando a o sinal obtido à partir do COMTRADE com um sinal senoidal/cossenoidal ideal sem defasamento inicial. Na prática, é possível obter o defasamento inicial através do seguinte procedimento \cite{understandingdsp}: considerando um triângulo retângulo no qual o ângulo será igual ao ângulo de defasamento inicial do sinal, o cateto adjacente será obtido através do produto interno entre as amostras do sinal com fase desconhecida e as amostras do seno ideal, e o cateto oposto será obtido ao efetuar a mesma operação entre as amostras do sinal real e o cosseno ideal. Para conseguir o defasamento, basta obter o arco tangente do quociente entre o resultado dos dois produtos internos. 
-
-Para obter a frequência dos sinais reconstruídos à partir dos COMTRADEs, de forma a poder comparar com a frequência dos sinais gerados pela fonte, é calculada a Transformada Discreta de Fourier (do inglês \textit{Discrete Fourier Transform} ou DFT) do sinal, levando o sinal do domínio do tempo para o domínio da frequência e observando o espectro resultante, onde os pontos diferentes de zero representam as frequências presentes no sinal \cite{lathisig}. O resultado desde procedimento é ilustrado no gráfico da figura \ref{fig:dft_freq}, para um sinal com frequência de 60Hz:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=14cm]{pictures/spec_mag.png}
-    \caption{Exemplo de espectro de magnitude resultante do cálculo da DFT, a fim de encontrar a frequência do sinal.}
-    \label{fig:dft_freq}
-\end{figure}
 
 \section{Aplicação dos Métodos de Calibração e avaliação dos Resultados}
 

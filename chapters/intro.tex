@@ -47,12 +47,38 @@
 \chapter{\lang{Introduction}{Introdução}}
 \phantomsection
 
+Um dos marcos mais importantes na linha evolutiva das subestações elétricas foi a digitalização dos dados de medição e proteção oriundos dos transformadores de instrumentação, bem como a própria digitalização de todas as redes de controle e monitoração. À partir deste momento, as redes de comunicação entre os equipamentos da subestação deixaram de ser totalmente analógicas e foram substituídas gradativamente por protocolos digitais que trazem maior robustez, confiabilidade e segurança. Da mesma forma, os sinais de corrente e tensão vindos dos transformadores de instrumentação também passaram a ser discretizados e amostrados em pacotes, seguindo normas internacionais de estrutura, precisão e organização. As subestações que possuem esta características implementadas são chamadas de Subestações Elétricas Digitais.
 
-No contexto das subestações elétricas digitais, as \textit{Merging Units} são equipamentos essenciais para a interface entre os transformadores de instrumentação e os IEDs (\textit{Intelligent Electronic Devices}, como relés de proteção, gravadores digitais (\textit{Digital Recorders}) e localizadores de falhas (\textit{Fault Locators}). Na captura dos sinais de tensão e corrente advindos dos transformadores, os erros máximos de magnitude e de fase expostos na documentação do fabricante devem ser respeitados ao longo de toda a faixa de aquisição do equipamento.
+Neste contexto, as \textit{Merging Units} são equipamentos essenciais para a interface entre os transformadores de instrumentação e os IEDs (\textit{Intelligent Electronic Devices}, como relés de proteção, gravadores digitais (\textit{Digital Recorders}) e localizadores de falhas (\textit{Fault Locators}). Isto é: estes equipamentos são responsáveis pela "ponte" entre a parte analógica e a parte digital de uma subestação elétrica. Na captura dos sinais de tensão e corrente advindos dos transformadores, os erros máximos de magnitude expostos na documentação do fabricante devem ser respeitados ao longo de toda a faixa de aquisição do equipamento.
+
+%adicionar mais informações sobre merging units // tendência da digitalização das subestações // de onde vai e pra onde vem
+
+Uma vez que estes erros máximos não são garantidos apenas pelo projeto de \textit{hardware} do equipamento, a motivação deste trabalho surge da necessidade de calibração das placas de aquisição analógica de corrente e tensão das \textit{Merging Units}. Nesta esfera, a norma IEC 61850-7-2 \cite{IEC61850_7-2} traz os Sampled Values como formato padrão para sinais elétricos e é através destes que este trabalho pretende calcular os ganhos e \textit{offsets} necessários para manter os canais de aquisição de tensão e corrente dentro das especificações propostas pelo fabricante, também em consonância com o que é proposto pela norma IEC 61869-13 \cite{IEC61869-13}. 
+
+\section{Objetivos}
+
+Com este plano de fundo, este trabalho tem como objetivo geral propor uma metodologia de calibração para as placas de aquisição analógica de \textit{Merging Units}, de forma a reduzir os erros de magnitude das leituras e adequar os canais aos padrões pré-estabelecidos.
+
+Para atender ao objetivo geral, podem ser elencados os seguintes objetivos específicos:
+
+\begin{itemize}
+    \item Captura e processamento dos pacotes de \textit{Sampled Values} \cite{IEC61850-9-2} gerados pela \textit{Merging Unit} à partir de sinais de corrente e tensão aplicados nos seus canais de aquisição analógica;
+    \item Conversão dos pacotes \textit{Sampled Values} em arquivos \textit{COMTRADE} \cite{comtrade1992} e avaliação dos seus erros em relação ao sinal aplicado antes das calibrações;
+    \textit Implementação dos métodos de calibração;
+    \item Utilização dos \textit{COMTRADEs} gerados como entrada para os métodos de calibração, de forma a obter como saída os coeficientes de linearização;
+    \item Aplicação dos coeficientes nos \textit{COMTRADEs}, a fim de avaliar os resultados de cada um dos métodos.
+\end{itemize}
 
 
-Uma vez que estes erros máximos não são garantidos apenas pelo projeto de \textit{hardware} do equipamento, a motivação deste trabalho surge da necessidade de calibração das placas de aquisição analógica de corrente e tensão das \textit{Merging Units}. Neste contexto, a norma IEC 61850-7-2 \cite{IEC61850_7-2} traz os Sampled Values como formato padrão para sinais elétricos e é através destes que este trabalho pretende calcular os ganhos e \textit{offsets} necessários para manter os canais de aquisição de tensão e corrente dentro das especificações propostas pelo fabricante, também em consonância com o que é proposto pela norma IEC 61869-13 \cite{IEC61869-13}. 
+\section{Estrutura do Trabalho}
 
-Com este plano de fundo, este trabalho visa propor uma metodologia de calibração para as placas de aquisição analógica de uma \textit{Merging Unit}, de forma a reduzir os erros de magnitude das leituras e adequar os canais aos padrões pré-estabelecidos.
+Este trabalho é dividido em três capítulos: o primeiro introduz cada um dos métodos utilizados para a calibração dos canais de aquisição analógica da \textit{Merging Unit}, mostrando seus equacionamentos, vantagens e desvantagens. O segundo capítulo mostra como a metodologia proposta neste trabalho, utilizando os métodos do primeiro capítulo, é utilizada para obter os coeficientes de calibração para os canais de corrente e de tensão. Por sua vez, o terceiro capítulo mostra os resultados da aplicação da metodologia de calibração proposta em uma \textit{Merging Unit} real, utilizando sinais em 50 Hz e 60 Hz.
 
-Para alcançar este objetivo principal, foi desenvolvido um sistema capaz de capturar os sinais aplicados nas entradas analógicas da \textit{Merging Unit} através de pacotes \textit{Sampled Values} \cite{IEC61850-9-2} e convertê-los para \textit{COMTRADE} \cite{comtrade1992}, de forma a possuir os sinais no formato padrão para este tipo de aplicação. Com os \textit{COMTRADEs} em mãos, foram aplicados três métodos de calibração distintos, de modo a poder compará-los e avaliar a melhor solução para o problema que é foco deste estudo.
+
+
+
+
+
+
+
+
