@@ -68,7 +68,7 @@ Para compreender o método matematicamente, partimos da definição de regressã
 y_i = \alpha + \beta x_i + \epsilon_i
 \end{equation}
 
-Onde \textit{y} é a variável a ser estimada, \textit{x} é a variável que deverá ser capaz de estimar \textit{y}, $\alpha$ é o parâmetro independente de \textit{x} e  $\beta$ é o coeficiente da variável \textit{x}. No caso em estudo, onde existem \textit{n} amostras a serem utilizadas nessa linearização, \textit{x} e \textit{y} serão vetores de tamanho \textit{n}.
+Onde \textit{y} é a variável a ser estimada, \textit{x} é a variável que deverá ser capaz de estimar \textit{y}, $\alpha$ é o parâmetro independente de \textit{x}, $\beta$ é o coeficiente da variável \textit{x} e $\epsilon_i$ é o vetor de erros ou variações de \textit{y}. No caso em estudo, onde existem \textit{n} amostras a serem utilizadas nessa linearização, \textit{x} e \textit{y} serão vetores de tamanho \textit{n}.
 
 Graficamente, essa linearização pode ser exemplificada pela figura \ref{fig:ols_1}, que ilustra cada um dos termos da equação, bem como a própria linha regressora:
 
@@ -81,21 +81,21 @@ Graficamente, essa linearização pode ser exemplificada pela figura \ref{fig:ol
 
 Matricialmente, a equação \ref{eq:1} pode ser exposta da forma:
 
-\begin{equation*} \textbf{Y}= \alpha + \textbf{X}\beta+\epsilon, \end{equation*}
+\begin{equation*} \textbf{Y}= \alpha + \textbf{X}\beta + \epsilon \end{equation*}
 
 Onde \textbf{Y} representa o vetor de valores a serem estimados, \textbf{X} representa o vetor de dados observados, $\beta$ e $\alpha$ os coeficientes dependentes e independentes respectivamente, e $\epsilon$ um vetor ou matriz de erros com variâncias constantes, da forma:
 
 \begin{equation*} \left(\begin{array}{cccc} \sigma^{2} & 0 & \ldots & 0 \\ 0 & \sigma^{2} & \ldots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \ldots & \sigma^{2} \\ \end{array} \right) \end{equation*}
 
-O objetivo do método de mínimos quadrados ordinários é encontrar as estimativas de $\beta$ e $\alpha$ e isto é feito à partir da minimização da soma dos quadrados dos erros $e_i$, ou seja:
+O objetivo do método de mínimos quadrados ordinários é encontrar as estimativas de $\beta$ e $\alpha$ e isto é feito à partir da minimização da soma dos quadrados dos erros $\epsilon_i$, ou seja:
 
 \begin{equation}\label{eq:2}
-S(\alpha, \beta) =\arg\min_{\beta}\sum_{i=1}^{n}\epsilon_{i}^{2}\\ 
+\beta =\arg\min_{\beta}\sum_{i=1}^{n}\epsilon_{i}^{2} 
 \end{equation}
 
 A ideia por trás dessa técnica é que, minimizando a soma do quadrado dos erros, sejam obtidos $\beta$ e $\alpha$ que trarão a menor diferença entre a estimativa de \textit{y}  e o valor de \textit{y} realmente observado. 
 
-Para prosseguir no desenvolvimento do método, é substituído $e_i$ por $y_i - \alpha - \beta x_i$, da forma:
+Para prosseguir no desenvolvimento do método, é substituído $\epsilon_i$ por $y_i - \alpha - \beta x_i$, da forma:
 
 \begin{equation}\label{eq:3}
 S(\alpha, \beta) = \sum_{i=1}^{n} (y_i - \alpha - \beta x_i)^2
@@ -104,23 +104,23 @@ S(\alpha, \beta) = \sum_{i=1}^{n} (y_i - \alpha - \beta x_i)^2
 A minimização ocorre com a derivação via regra da cadeia de $S(\alpha, \beta)$ em relação à $\alpha$ e $\beta$ e igualando esse resultado a zero, como é mostrado abaixo:
 
 \begin{equation*} 
-\frac{\delta S}{\delta \alpha} = \frac{\delta S}{\delta x_i} \ast \frac{\delta x_i}{\delta \alpha}
+\frac{\partial S}{\partial \alpha} = \frac{\partial S}{\partial x_i} \ast \frac{\partial x_i}{\partial \alpha}
 \end{equation*}
 
 \begin{equation*}
-\frac{\delta S}{\delta x} = 2 \sum_{i=1}^{n} (y_i - \alpha - \beta x_i)
+\frac{\partial S}{\partial x} = 2 \sum_{i=1}^{n} (y_i - \alpha - \beta x_i)
 \end{equation*}
 
 \begin{equation*}
-\frac{\delta x_i}{\delta \alpha} = -1
+\frac{\partial x_i}{\partial \alpha} = -1
 \end{equation*}
 
 \begin{equation}\label{eq:4}
-\frac{\delta S}{\delta \alpha} = -2 \sum_{i=1}^{n} (y_i - \alpha - \beta x_i) = 0
+\frac{\partial S}{\partial \alpha} = -2 \sum_{i=1}^{n} (y_i - \alpha - \beta x_i) = 0
 \end{equation}
 
 \begin{equation}\label{eq:5}
-\frac{\delta S}{\delta \beta} = -2 \sum_{i=1}^{n} x_i (y_i - \alpha - \beta x_i) = 0
+\frac{\partial S}{\partial \beta} = -2 \sum_{i=1}^{n} x_i (y_i - \alpha - \beta x_i) = 0
 \end{equation}
 
 Dividindo a equação \ref{eq:4} por 2n, é obtido:
@@ -167,7 +167,7 @@ Após o cálculo de $\beta$, basta reorganizar a equação \ref{eq:6} para obter
   \alpha = \overline{y} - \beta \overline{x} 
 \end{equation}
 
-Para a obtenção resultados ótimos utilizando este método, algumas premissas devem ser consideradas:
+Para a obtenção de resultados ótimos utilizando este método, algumas premissas devem ser consideradas:
 
 \begin{itemize}
   \item Os regressores \textit{x} devem ser fixos, isto é, o vetor \textit{X} não deve ser estocástico;
@@ -201,7 +201,7 @@ Uma das pressuposições do modelo de linearização por mínimos quadrados ordi
 Em situações na qual essa premissa não é cumprida, é necessário adotar variâncias proporcionais:
 
 \begin{equation}\label{eq:10}
-Var(y_i|x_i) = \sigma^2 = \frac{1}{w_i}
+Var(y_i|x_i) = \frac{\sigma^2}{w_i}
 \end{equation}
 
 Onde $w_i$ são constantes de proporcionalidade, particulares a cada amostra.
@@ -218,10 +218,10 @@ Da mesma forma, $y_i$ representa o vetor de dados a serem estimados, $x_i$ repre
 
 Onde cada $w_i = \frac{1}{\sigma_i^2}$.
 
-Assim, os valores de $\beta$ e $\alpha$ podem ser estimados à partir da soma dos quadrados dos erros $e_i^\ast$, da forma:
+Assim, os valores de $\beta$ e $\alpha$ podem ser estimados à partir da soma dos quadrados dos erros $\epsilon_i^\ast$, da forma:
 
 \begin{equation}\label{eq:12}
- \beta =\arg\min_{\beta}\sum_{i=1}^{n}\epsilon_{i}^{*2}\\ 
+ \beta =\arg\min_{\beta}\sum_{i=1}^{n}\epsilon_{i}^{*2}
 \end{equation}
 
 Matricialmente, a equação \ref{eq:11} pode ser exposta como se segue:
@@ -233,7 +233,7 @@ Y = \alpha + X\beta +\epsilon^\ast
 De forma um pouco mais detalhada, a equação \ref{eq:12} pode ser expandida da forma:
 
 \begin{equation}\label{eq:13}
- S(\alpha,\beta) =\sum_{i=1}^{n} w_i(y_i - \alpha - \beta x_i)^2\\\ 
+ S(\alpha,\beta) =\sum_{i=1}^{n} w_i(y_i - \alpha - \beta x_i)^2 
 \end{equation}
 
 Derivando como no método de mínimos quadrados ordinários, $\alpha$ e $\beta$ são equacionados:
@@ -243,17 +243,17 @@ Derivando como no método de mínimos quadrados ordinários, $\alpha$ e $\beta$ 
 \end{equation}
 
 \begin{equation}\label{eq:15}
-  \beta =\frac{\sum_{i=1}^{n}w_i(x_i - \overline{x})(y_i - \overline{y})}{\sum_{i=1}^{n} w_i(x_i - \overline{x})^2}\\\  
+  \beta =\frac{\sum_{i=1}^{n}w_i(x_i - \overline{x})(y_i - \overline{y})}{\sum_{i=1}^{n} w_i(x_i - \overline{x})^2} 
 \end{equation}
 
 Onde $\overline{x}$ e $\overline{y}$ são as médias ponderadas de \textit{x} e \textit{y}:
 
 \begin{equation*}
-  \overline{x} =\frac{\sum_{i=1}^{n}w_i x_i}{w_i}\\\  
+  \overline{x} =\frac{\sum_{i=1}^{n}w_i x_i}{w_i} 
 \end{equation*}
 
 \begin{equation*}
-  \overline{y} =\frac{\sum_{i=1}^{n}w_i y_i}{w_i}\\\  
+  \overline{y} =\frac{\sum_{i=1}^{n}w_i y_i}{w_i} 
 \end{equation*}
 
 Matricialmente, representando $\textbf{X} = (x_i - \overline{x})$ e $\textbf{Y} = (y_i - \overline{y})$, a equação \ref{eq:15} é representada por:
@@ -304,7 +304,7 @@ Visando reduzir este problema, a linearização por desvios mínimos absolutos �
 Equacionando o $\beta$ para este método:
 
 \begin{equation}\label{eq:17}
- \beta =\arg\min_{\beta}\sum_{i=1}^{n}|\epsilon_{i}|\\ 
+ \beta =\arg\min_{\beta}\sum_{i=1}^{n}|\epsilon_{i}|
 \end{equation}
 
 Substituindo $\epsilon$:
@@ -317,7 +317,7 @@ Para a implementação de um algoritmo que soluciona este método, é necessári
 
 O próximo passo é procurar a melhor linha com respeito ao somatório de erros absolutos $\sum_{i=1}^{n}|\epsilon_{i}|$ que cruza ($x_2$, $y_2$). Essa linha cruzará, pelo menos, um outro ponto ($x_3$, $y_3$) e assim sucessivamente. Durante essa iterações, o valor de $\sum_{i=1}^{n}|\epsilon_{i}|$ diminui até que seja encontrada uma iteração com uma linha obtida idêntica a anterior, onde é possível concluir que esta é a melhor linha de regressão para os pontos fornecidos \cite{conciseenclyclopediaofstatistics}.
 
-Para a construção da melhor linha cruzando ($x_1$, $y_1$), devemos encontrar o ponto ($x_k$, $y_k$) para qual a linha seja a melhor em termos de $\sum_{i=1}^{n}|\epsilon_{i}|$. Esta linha deverá ter a seguinte equação
+Para a construção da melhor linha cruzando ($x_1$, $y_1$), devemos encontrar o ponto ($x_k$, $y_k$) para qual a linha seja a melhor em termos de $\sum_{i=1}^{n}|\epsilon_{i}|$. Esta linha deverá ter a seguinte equação:
 
 \begin{equation}\label{eq:19}
 y(x) = y_1 + \frac{y_k - y_1}{x_k - x_1} (x - x_1)
@@ -351,7 +351,7 @@ Para encontrar o ponto mais facilmente, são renomeados os (n - 1) pontos candid
   \end{cases}
 \end{equation}
 
-Essa condição garante que $\beta$ minimize a equacão \ref{eq:23} de maneira análoga à $\sum_{i=1}^{n}|\epsilon_{i}|$ para as linhas de regressão passando por ($x_1$, $y_1$).
+Essa condição garante que $\beta$ minimize a equação \ref{eq:23} de maneira análoga à $\sum_{i=1}^{n}|\epsilon_{i}|$ para as linhas de regressão passando por ($x_1$, $y_1$).
 
 \begin{equation}\label{eq:23}
 \sum_{i=1}^n\left| \left(y_i-y_1\right)-\beta\left(x_i-x_1\right)\right|

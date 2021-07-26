@@ -29,9 +29,9 @@ Para a implementação das metodologias de testes utilizadas neste trabalho, foi
     \label{fig:diag_substation}
 \end{figure}
 
-Neste exemplo, a \textit{Merging Unit} serve como interface entre os transformadores de instrumentação e os IEDs da rede, gerando o fluxo de \textit{Sampled Values} conforme com a norma IEC-61850 \cite{IEC61850_7-2} à partir dos sinais de corrente e tensão aplicados. IED, do inglês \textit{Intelligent Electronic Device} ou Dispositivo Eletrônico Inteligente, é qualquer dispositivo que incorpora um ou mais processadores com a capacidade de receber ou enviar/controlar dados de ou para uma fonte externa de sinal (e.g., relés digitais, disjuntores) \cite{substation_basics}. Já \textit{Sampled Values} \cite{sv_typhoonhil} é o protocolo padrão utilizado para comunicação ente as \textit{Merging Units} e os IEDs. Este protocolo é do tipo \textit{publisher/subscriber}, onde o \textit{publisher} (neste caso a \textit{Merging Unit}), envia mensagens pela rede \textit{Ethernet} periodicamente com intervalos de tempo precisamente definidos. Estas mensagens contém o valor amostrado de cada um dos sinais aplicados nas placas de aquisição analógica da \textit{Merging Unit}. O intervalo de tempo depende de dois fatores: a frequência do sinal medido e a quantidade de amostras por ciclo de sinal. A norma IEC 61850-9-2LE \cite{IEC61850_7-2} define dois valores para a quantidade de amostras por ciclo: 80 para equipamentos de proteção e 256 para equipamentos de medição. Para a frequência do sinal adquirido não há restrições, sendo 50 e 60 Hz os valores mais comumente utilizados. O \textit{subscriber}, representado neste exemplo pelos \textit{IEDs}, ``subscreve'' aos pacotes de \textit{Sampled Values} buscando receber informações sobre um determinado dispositivo da rede.
+Neste exemplo, a \textit{Merging Unit} serve como interface entre os transformadores de instrumentação e os IEDs da rede, gerando o fluxo de \textit{Sampled Values} conforme com a norma IEC-61850 \cite{IEC61850_7-2} a partir dos sinais de corrente e tensão aplicados. IED, do inglês \textit{Intelligent Electronic Device} ou Dispositivo Eletrônico Inteligente, é qualquer dispositivo que incorpora um ou mais processadores com a capacidade de receber ou enviar/controlar dados de ou para uma fonte externa de sinal (e.g., relés digitais, disjuntores) \cite{substation_basics}. Já \textit{Sampled Values} \cite{sv_typhoonhil} é o protocolo padrão utilizado para comunicação ente as \textit{Merging Units} e os IEDs. Este protocolo é do tipo \textit{publisher/subscriber}, onde o \textit{publisher} (neste caso a \textit{Merging Unit}), envia mensagens pela rede \textit{Ethernet} periodicamente com intervalos de tempo precisamente definidos. Estas mensagens contém o valor amostrado de cada um dos sinais aplicados nas placas de aquisição analógica da \textit{Merging Unit}. O intervalo de tempo depende de dois fatores: a frequência do sinal medido e a quantidade de amostras por ciclo de sinal. A norma IEC 61850-9-2LE \cite{IEC61850_7-2} define dois valores para a quantidade de amostras por ciclo: 80 para equipamentos de proteção e 256 para equipamentos de medição. Para a frequência do sinal adquirido não há restrições, sendo 50 e 60 Hz os valores mais comumente utilizados. O \textit{subscriber}, representado neste exemplo pelos \textit{IEDs}, ``subscreve'' aos pacotes de \textit{Sampled Values} buscando receber informações sobre um determinado dispositivo da rede.
 
-Para reproduzir esse mesmo ambiente em laboratório, são substituídos os transformadores por uma fonte de tensão e corrente e o IED por um computador, que receberá e processará os \textit{Sampled Values}. A imagem \ref{fig:met_acq} ilustra esse ambiente:
+Para reproduzir esse mesmo ambiente em laboratório, são substituídos os transformadores por uma fonte de tensão e corrente e o IED por um computador, que receberá e processará os \textit{Sampled Values}. A figura \ref{fig:met_acq} ilustra esse ambiente.
 
 \begin{figure}
     \centering
@@ -88,12 +88,13 @@ O outro arquivo imprescindível para o COMTRADE é o que contém as próprias am
 %\fonte{Teste. -- \showfont}
 \end{quadro}
 
+Este ambiente de testes de calibração é inspirado do processo que acontece na própria fábrica da \textit{Merging Unit}, durante a etapa de industrialização. Na fábrica, as \textit{Merging Units} são montadas, testadas e, antes de serem enviados aos clientes, passam por uma primeira etapa de calibração dos canais de aquisição analógica utilizando uma fonte de referência com suficiente precisão em relação aos erros máximos permitidos pelo fabricante. Após a obtenção dos coeficientes de calibração para cada um dos canais, o equipamento passa por um processo de \textit{Burn-In}: o mesmo é acomodado em um forno com temperatura ajustável durante 12 horas, de forma a acelerar o processo de \textit{aging} dos componentes. Após esta etapa, a \textit{Merging Unit} é calibrada uma vez mais, onde então os coeficientes desta segunda calibração sobrescrevem os coeficientes da primeira no equipamento. Neste momento, a \textit{Merging Unit} está pronta para ser enviada para o cliente.
 
 \section{Geração de Sinais e Aquisição pela \textit{Merging Unit}}
 
 %Para capturar os dados necessários para a aplicações dos algoritmos de calibração, se faz necessária a montagem de uma configuração de testes capaz de aplicar sinais previamente programados e com precisão adequada nos canais de tensão e corrente das placas de aquisição analógica da \textit{Merging Unit}. Estes sinais serão condicionados pelo circuito de  instrumentação de entrada da placa e, posteriormente, serão transformados em um fluxo de dados segundo o protocolo \textit{Sampled Values}, conforme a norma IEC-61850 \cite{IEC61850_7-2}, para posteriormente serem capturados por um computador. Este protocolo é usado para a troca de informações entre a \textit{Merging Unit} e os \textit{IEDs - Intelligent Electronic Devices}, ou Dispositivos Eletrônicos Inteligentes, em uma subestação elétrica digital com rede \textit{Ethernet} \cite{sv_typhoonhil}. Um \textit{IED} é qualquer dispositivo que incorpora um ou mais processadores com a capacidade de receber ou enviar/controlar dados de ou para uma fonte externa de sinal (e.g., relés digitais, disjuntores) \cite{substation_basics}.
 
-Na configuração de testes proposta, será utilizada uma fonte de sinais de tensão e corrente programável com precisão maior que as placas de aquisição analógica da \textit{Merging Unit} em análise, de forma a reduzir os erros inerentes ao  sinal aplicado. À partir destes sinais, a \textit{Merging Unit} deverá capturar e processar em tempo real gerando como saída um fluxo de \textit{Sampled Values}. Estes fluxo de dados deverá ser direcionado a um computador para processamento posterior via interface de rede \textit{ethernet}.
+Na configuração de testes proposta, será utilizada uma fonte de sinais de tensão e corrente programável com precisão maior que as placas de aquisição analógica da \textit{Merging Unit} em análise, de forma a reduzir os erros inerentes ao  sinal aplicado. A partir destes sinais, a \textit{Merging Unit} deverá capturar e processar em tempo real gerando como saída um fluxo de \textit{Sampled Values}. Estes fluxo de dados deverá ser direcionado a um computador para processamento posterior via interface de rede \textit{ethernet}.
 
 \section{Recebimento dos Pacotes de \textit{Sampled Values} e reconstrução dos sinais aplicados}
 
@@ -102,7 +103,7 @@ Já com estes pacotes de \textit{Sampled Values} recebidos pelo computador, é m
 \begin{figure}[H]
     \centering
     \includegraphics[width=14cm]{pictures/sig_corr_reconst.png}
-    \caption{Exemplo de oscilografia construída à partir de COMTRADE.}
+    \caption{Exemplo de oscilografia construída a partir de COMTRADE.}
     \label{fig:sig_corr_reconst}
 \end{figure}
 
@@ -116,7 +117,7 @@ RMS(k) = \sqrt{\frac{1}{N} \sum_{i=0}^{N - 1} |u(Nk + i)|^2}
 
 Onde N representa o número de amostras por ciclo do sinal avaliado e k é o índice que representa o ciclo atual do sinal. A função $u(Nk + i)$ representa os sinais amostrados de corrente e tensão em análise.
 
-Estes valores são muito informativos pois restringem o múmero de amostras utilizadas como entrada para os algoritmos de calibração de cada canal, sem perder informações substanciais dos sinais originais. 
+Estes valores são muito informativos pois restringem o número de amostras utilizadas como entrada para os algoritmos de calibração de cada canal, sem perder informações substanciais dos sinais originais. 
 
 Neste ponto, é possível calcular os erros de magnitude entre o valor RMS dos sinais aplicados pela fonte e cada um dos valores RMS obtidos por ciclo. De forma a aumentar a variedade dos resultados e trazer mais informações, para cada sinal aplicado são salvos o maior, o menor e a média entre os erros. 
 
@@ -135,7 +136,7 @@ De forma a sumarizar os processos descritos nesta seção, a figura \ref{fig:dia
 \begin{figure}[H]
     \centering
     \includegraphics[width=14cm]{pictures/diag_met_avalia.png}
-    \caption{Diagrama dos procedimentos descritos na seção de aplicação dos métodos de calibração e avalia os resultados.}
+    \caption{Diagrama dos procedimentos descritos na seção de aplicação dos métodos de calibração e avaliação dos resultados.}
     \label{fig:diag_met_aval}
 \end{figure}
 

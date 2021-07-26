@@ -14,7 +14,7 @@
 %\renewcommand{\floatpagefraction}{.95}
 %\renewcommand{\textfraction}{.75}
 
-Utilizando a metodologia descrita no \autoref{cap_metodologia}, foram executadas uma série de ensiaios de aquisição, transmissão e processamento de dados utilizando uma \textit{Merging Unit} comercial com o intuito de validar os métodos propostos no \autoref{cap_algoritmos}. 
+Utilizando a metodologia descrita no \autoref{cap_metodologia}, foram executadas uma série de ensaios de aquisição, transmissão e processamento de dados utilizando uma \textit{Merging Unit} comercial com o intuito de validar os métodos propostos no \autoref{cap_algoritmos}. 
 
 \section{Equipamentos Utilizados}
 
@@ -93,7 +93,7 @@ Estes ensaios foram executados para as frequências de 50Hz e 60Hz. Apesar das e
 
 \section{Erros antes das calibrações}
 
-A fim de expor os erros antes das calibrações de maneira objetiva, mas que contenham a quantidade necessária detalhes necessária para a análise antes e após a aplicação dos métodos de calibração, foram escolhidos um canal de tensão e um de corrente. De forma puramente arbitrária, foram escolhidos o canal VC de tensão e o canal IA de corrente.
+A fim de expor os erros antes das calibrações de maneira objetiva, mas que contenham a quantidade de detalhes necessária para a análise antes e após a aplicação dos métodos de calibração, foram escolhidos um canal de tensão e um de corrente. De forma arbitrária, foram escolhidos o canal VC de tensão e o canal IA de corrente para uma análise mais aprofundada. Esta escolha foi tomada pois todos os canais são iguais por projeto, o que tira a necessidade de uma análise particular para cada um dos quatro canais de corrente ou para cada um dos quatro canais de tensão da placa.
 
 As tabelas \ref{tab:tabelaerros60A} e \ref{tab:tabelaerros60V} mostram os erros máximos, mínimos e médios entre os valores aplicados pela fonte de referência em 60Hz nos canais de corrente IA e de tensão VC e o sinal obtido a partir do fluxo de dados (registro no formato COMTRADE) gerado pela \textit{Merging Unit} antes de qualquer calibração. 
 
@@ -105,7 +105,7 @@ As tabelas \ref{tab:tabelaerros60A} e \ref{tab:tabelaerros60V} mostram os erros 
 \begin{tabular}{cccccccc}
   %\small -> diminuir fonte
   \toprule
-   \textbf{Canal IA} &  & &  \\
+   & & & \textbf{Canal IA} &  & &  \\
   \midrule
   \textbf{Val. Apl. (mA)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%}  \\
   \midrule
@@ -139,7 +139,7 @@ As tabelas \ref{tab:tabelaerros60A} e \ref{tab:tabelaerros60V} mostram os erros 
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal VC} &  & &  \\
+  & & & \textbf{Canal VC} &  & &  \\
   \midrule
    \textbf{Val. Apl. (V)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%}  \\
   \midrule
@@ -175,7 +175,7 @@ As tabelas \ref{tab:tabelaerros50A} e \ref{tab:tabelaerros50V} mostram os erros 
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal IA} &  & &  \\
+   & & & \textbf{Canal IA} &  & &  \\
   \midrule
   \textbf{Val. Apl. (mA)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%}  \\
   \midrule
@@ -209,7 +209,7 @@ As tabelas \ref{tab:tabelaerros50A} e \ref{tab:tabelaerros50V} mostram os erros 
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal VC} &  & &  \\
+   & & & \textbf{Canal VC} &  & &  \\
   \midrule
   \textbf{Val. Apl. (V)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%} \\
   \midrule
@@ -236,7 +236,7 @@ As tabelas \ref{tab:tabelaerros50A} e \ref{tab:tabelaerros50V} mostram os erros 
   }
 \end{table}
 
-Como é possível perceber comparando com os erros máximos do equipamento expostos nas tabelas \ref{tab:specsMEA} e \ref{tab:specsMEV} com os erros obtidos nas tabelas \ref{tab:tabelaerros60A}, \ref{tab:tabelaerros60V}, \ref{tab:tabelaerros50A} e \ref{tab:tabelaerros50V} a placa de aquisição analisada não atende as especificações de corrente e tensão sem calibração.
+Como é possível perceber comparando com os erros máximos do equipamento expostos nas tabelas \ref{tab:specsMEA} e \ref{tab:specsMEV} com os erros obtidos nas tabelas \ref{tab:tabelaerros60A}, \ref{tab:tabelaerros60V}, \ref{tab:tabelaerros50A} e \ref{tab:tabelaerros50V} a placa de aquisição analisada não atende as especificações de corrente e tensão sem calibração. É interessante observar que os sinais medidos aparecem quase sempre com magnitude menor aos sinais aplicados pela fonte de referência.
 
 \newpage
 
@@ -259,7 +259,7 @@ As leituras corrigidas pelos coeficientes de primeira ordem (ganho e \textit{off
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal IA} &  & &  \\
+   & & & \textbf{Canal IA} &  & &  \\
   \midrule
  \textbf{Val. Apl. (mA)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%}  \\
   \midrule
@@ -294,7 +294,7 @@ As leituras corrigidas pelos coeficientes de primeira ordem (ganho e \textit{off
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal VC} &  & &  \\
+   & & & \textbf{Canal VC} &  & &  \\
   \midrule
  \textbf{Val. Apl. (V)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%} \\
   \midrule
@@ -334,7 +334,7 @@ Com sinais aplicados com 50Hz, obtém-se os valores expostos nas tabelas \ref{ta
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal IA} &  & &  \\
+   & & & \textbf{Canal IA} &  & &  \\
   \midrule
   \textbf{Val. Apl. (mA)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%}  \\
   \midrule
@@ -368,7 +368,7 @@ Com sinais aplicados com 50Hz, obtém-se os valores expostos nas tabelas \ref{ta
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal VC} &  & &  \\
+   & & & \textbf{Canal VC} &  & &  \\
   \midrule
   \textbf{Val. Apl. (V)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%} \\
   \midrule
@@ -406,13 +406,13 @@ A tabela \ref{tab:tabelaerros60olsrsq} expõe os valores de $R^2$ para cada um d
 }{%
   \begin{tabular}{ccc}
   \toprule
-   \textbf{Canal IA} &  &  \\
+   & \textbf{Canal IA} &  \\
   \midrule
  \textbf{$R^2$ Erro máximo} & \textbf{ $R^2$ Erro Mínimo} & \textbf{$R^2$ Erro médio}   \\
   \midrule
   999999992454582 & 0.999999681815048 & 0.99999977198064\\
     \toprule
-   \textbf{Canal VC} &  &  \\
+    & \textbf{Canal VC} & \\
      \midrule
  \textbf{$R^2$ Erro máximo} & \textbf{ $R^2$ Erro Mínimo} & \textbf{$R^2$ Erro médio}   \\
     \midrule
@@ -448,7 +448,7 @@ Já utilizando o método dos mínimos quadrados ponderados, os resultados da cal
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal IA} &  & &  \\
+   & & & \textbf{Canal IA} &  & &  \\
   \midrule
   \textbf{Val. Apl. (mA)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%} \\
   \midrule
@@ -482,7 +482,7 @@ Já utilizando o método dos mínimos quadrados ponderados, os resultados da cal
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal VC} &  & &  \\
+   & & & \textbf{Canal VC} &  & &  \\
   \midrule
   \textbf{Val. Apl. (V)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%} \\
   \midrule
@@ -524,7 +524,7 @@ Para as aquisições de tensão, em nenhum dos grupos de sinais de entrada foi p
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal IA} &  & &  \\
+   & & & \textbf{Canal IA} &  & &  \\
   \midrule
   \textbf{Val. Apl. (mA)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%} \\
   \midrule
@@ -558,7 +558,7 @@ Para as aquisições de tensão, em nenhum dos grupos de sinais de entrada foi p
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal VC} &  & &  \\
+   & & & \textbf{Canal VC} &  & &  \\
   \midrule
   \textbf{Val. Apl. (V)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%} \\
   \midrule
@@ -594,13 +594,13 @@ Da mesma forma que no método de mínimos quadrados ordinários, os coeficientes
 }{%
   \begin{tabular}{ccc}
   \toprule
-   \textbf{Canal IA} &  &  \\
+   & \textbf{Canal IA} &\\
   \midrule
  \textbf{$R^2$ Erro máximo} & \textbf{ $R^2$ Erro Mínimo} & \textbf{$R^2$ Erro médio}   \\
   \midrule
  0.999999900283003 & 0.99999952000389 & 0.99999960002109\\
     \toprule
-   \textbf{Canal VC} &  &  \\
+   &  \textbf{Canal VC} &  \\
      \midrule
  \textbf{$R^2$ Erro máximo} & \textbf{ $R^2$ Erro Mínimo} & \textbf{$R^2$ Erro médio}   \\
     \midrule
@@ -635,7 +635,7 @@ Corrigindo os valores expostos nas tabelas \ref{tab:specsMEA} e \ref{tab:specsME
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal IA} &  & &  \\
+   & & & \textbf{Canal IA} &  & &  \\
   \midrule
   \textbf{Val. Apl. (mA)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%} \\
   \midrule
@@ -669,7 +669,7 @@ Corrigindo os valores expostos nas tabelas \ref{tab:specsMEA} e \ref{tab:specsME
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal VC} &  & &  \\
+   & & & \textbf{Canal VC} &  & &  \\
   \midrule
   \textbf{Val. Apl. (V)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%} \\
   \midrule
@@ -707,7 +707,7 @@ Com sinais de entrada com frequência de 50 Hz, os resultados estão expostos na
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal IA} &  & &  \\
+   & & & \textbf{Canal IA} &  & & \\
   \midrule
   \textbf{Val. Apl. (mA)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%} \\
   \midrule
@@ -741,7 +741,7 @@ Com sinais de entrada com frequência de 50 Hz, os resultados estão expostos na
 }{%
   \begin{tabular}{cccccccc}
   \toprule
-   \textbf{Canal VC} &  & &  \\
+   & & & \textbf{Canal VC} &  & &  \\
   \midrule
   \textbf{Val. Apl. (V)} & \textbf{Err. Máx.} & \textbf{Valor Máx.} & \textbf{\%} & \textbf{Valor Mín.} & \textbf{\%} & \textbf{Valor Méd.} & \textbf{\%} \\
   \midrule
@@ -791,7 +791,7 @@ Com isto, é possível observar que o Método dos Mínimos Desvios Absolutos foi
 }{%
   \begin{tabular}{ccc}
   \toprule
-   \textbf{Canal IA} &  &   \\
+   & \textbf{Canal IA} & \\
   \midrule
   \textbf{Erro Médio MQO (\%)} & \textbf{Erro Médio MQP (\%)} & \textbf{Erro Médio MDA (\%)}  \\ 
   \midrule
@@ -827,7 +827,7 @@ A tabela \ref{tab:med_resvolt} expõe as médias dos erros obtidos nas três cal
 }{%
   \begin{tabular}{ccc}
   \toprule
-   \textbf{Canal VC} &  &   \\
+   & \textbf{Canal VC}  & \\
   \midrule
   \textbf{Erro Médio MQO (\%)} & \textbf{Erro Médio MQP (\%)} & \textbf{Erro Médio MDA (\%)}  \\ 
   \midrule
@@ -844,7 +844,7 @@ A tabela \ref{tab:med_resvolt} expõe as médias dos erros obtidos nas três cal
   }
 \end{table}
 
-Da mesma forma, utilizando sinais de entrada de 50 Hz, temos os resultados expostos nas imagens \ref{fig:res_curr50} para corrente e \ref{fig:res_volt50} para tensão. No canal de corrente, os métodos de Mínimos Quadrados Ponderados e Mínimos Desvios Absolutos em primeira ordem são suficientes para compensar as leituras e deixar o equipamento dentro das especificações do fabricante. No método de Mínimos Quadrados Ordinários, o resultado mostra-se insuficiente para 50 mA. Já para o canal de tensão, da mesma forma que utilizando sinais de entrada com 60 Hz, nenhum dos três métodos é insuficiente para a calibração em primeira ordem. As tabelas \ref{tab:med_rescurr} e \ref{tab:med_resvolt} expõem os erros médios após estas calibrações.
+Da mesma forma, utilizando sinais de entrada de 50 Hz, temos os resultados expostos nas imagens \ref{fig:res_curr50} para corrente e \ref{fig:res_volt50} para tensão. No canal de corrente, os métodos de Mínimos Quadrados Ponderados e Mínimos Desvios Absolutos em primeira ordem são suficientes para compensar as leituras e deixar o equipamento dentro das especificações do fabricante. No método de Mínimos Quadrados Ordinários, o resultado mostra-se insuficiente para 50 mA. Já para o canal de tensão, da mesma forma que utilizando sinais de entrada com 60 Hz, nenhum dos três métodos é suficiente para a calibração em primeira ordem. As tabelas \ref{tab:med_rescurr} e \ref{tab:med_resvolt} expõem os erros médios após estas calibrações.
 
 
 \begin{figure}[H]
@@ -870,7 +870,7 @@ Da mesma forma, utilizando sinais de entrada de 50 Hz, temos os resultados expos
 }{%
   \begin{tabular}{ccc}
   \toprule
-   \textbf{Canal IA} &  &   \\
+   & \textbf{Canal IA} &  \\
   \midrule
   \textbf{Erro Médio MQO (\%)} & \textbf{Erro Médio MQP (\%)} & \textbf{Erro Médio MDA (\%)}  \\ 
   \midrule
@@ -895,7 +895,7 @@ Da mesma forma, utilizando sinais de entrada de 50 Hz, temos os resultados expos
 }{%
   \begin{tabular}{ccc}
   \toprule
-   \textbf{Canal VC} &  &   \\
+  & \textbf{Canal VC} & \\
   \midrule
   \textbf{Erro Médio MQO (\%)} & \textbf{Erro Médio MQP (\%)} & \textbf{Erro Médio MDA (\%)}  \\ 
   \midrule
@@ -939,7 +939,7 @@ Como já é possível perceber, há uma substancial diminuição nos erros, prin
 }{%
   \begin{tabular}{ccc}
   \toprule
-   \textbf{Canal VC} &  &   \\
+  & \textbf{Canal VC} & \\
   \midrule
   \textbf{Erro Médio MQO (\%)} & \textbf{Erro Médio MQP (\%)} & \textbf{Erro Médio MDA (\%)}  \\ 
   \midrule
@@ -973,7 +973,7 @@ Como já é possível perceber, há uma substancial diminuição nos erros, prin
 }{%
   \begin{tabular}{ccc}
   \toprule
-   \textbf{Canal VC} &  &   \\
+   & \textbf{Canal VC}  &\\
   \midrule
   \textbf{Erro Médio MQO (\%)} & \textbf{Erro Médio MQP (\%)} & \textbf{Erro Médio MDA (\%)}  \\ 
   \midrule
